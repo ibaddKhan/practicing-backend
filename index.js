@@ -1,9 +1,26 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-
+let arr = [{
+  title: "world",
+  ID: Date.now()
+},
+{
+  title: "world2",
+  ID: Date.now()
+},
+{
+  title: "world3",
+  ID: Date.now()
+}, {
+  title: "world4",
+  ID: Date.now()
+}, {
+  title: "world5",
+  ID: Date.now()
+}]
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send(arr);
 });
 
 app.get("/login", (req, res) => {
