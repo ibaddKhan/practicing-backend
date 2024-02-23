@@ -27,6 +27,7 @@ app.post("/add", (req, res) => {
     ID: Date.now() 
   };
   arr.unshift(newItem);
+  res.status(201).send(newItem);
 });
 
 app.listen(port, () => {
