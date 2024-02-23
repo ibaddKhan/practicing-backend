@@ -7,37 +7,7 @@ app.use(express.json());
 
 let port =  3000;
 require("dotenv").config();
-let arr = [{
-  title: "world",
-  ID: Date.now()
-}, {
-  title: "world2",
-  ID: Date.now()
-}, {
-  title: "world3",
-  ID: Date.now()
-}, {
-  title: "world4",
-  ID: Date.now()
-}, {
-  title: "world5",
-  ID: Date.now()
-}, {
-  title: "world5",
-  ID: Date.now()
-}, {
-  title: "world5",
-  ID: Date.now()
-}, {
-  title: "world5",
-  ID: Date.now()
-}, {
-  title: "world5",
-  ID: Date.now()
-}, {
-  title: "world5",
-  ID: Date.now()
-}];
+let arr = [];
 
 app.get("/", (req, res) => {
   res.send(arr);
@@ -56,7 +26,7 @@ app.post("/add", (req, res) => {
     title: req.body.title,
     ID: Date.now() 
   };
-  arr.push(newItem);
+  arr.unshift(newItem);
   res.status(201).send(newItem); 
 });
 
