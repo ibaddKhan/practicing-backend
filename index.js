@@ -1,5 +1,9 @@
-const express = require("express");
-const app = express();
+var express = require('express')
+var cors = require('cors')
+var app = express()
+ 
+app.use(cors())
+let port =3000
 require("dotenv").config();
 let arr = [{
   title: "world",
@@ -30,6 +34,6 @@ app.get("/home", (req, res) => {
   res.send("Men  home ");
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Example app listening on port ${process.env.PORT}`);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
