@@ -3,7 +3,7 @@ var cors = require('cors');
 var app = express();
 
 app.use(cors());
-app.use(express.json()); // Use this middleware to parse JSON bodies
+app.use(express.json()); 
 
 let port =  3000;
 require("dotenv").config();
@@ -22,6 +22,21 @@ let arr = [{
 }, {
   title: "world5",
   ID: Date.now()
+}, {
+  title: "world5",
+  ID: Date.now()
+}, {
+  title: "world5",
+  ID: Date.now()
+}, {
+  title: "world5",
+  ID: Date.now()
+}, {
+  title: "world5",
+  ID: Date.now()
+}, {
+  title: "world5",
+  ID: Date.now()
 }];
 
 app.get("/", (req, res) => {
@@ -36,14 +51,13 @@ app.get("/home", (req, res) => {
   res.send("Men  home ");
 });
 
-// POST route to add a new item
 app.post("/add", (req, res) => {
   const newItem = {
     title: req.body.title,
-    ID: Date.now() // Generate a new ID for the item
+    ID: Date.now() 
   };
   arr.push(newItem);
-  res.status(201).send(newItem); // Send back the newly added item
+  res.status(201).send(newItem); 
 });
 
 app.listen(port, () => {
