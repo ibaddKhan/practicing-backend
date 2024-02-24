@@ -1,13 +1,13 @@
-var express = require('express');
-var cors = require('cors');
-var app = express();
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
-let port =  3000;
+const port = 3000;
 require("dotenv").config();
-let arr = [];
+const arr = [];
 
 app.get("/", (req, res) => {
   res.send(arr);
@@ -18,13 +18,13 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/home", (req, res) => {
-  res.send("Men  home ");
+  res.send("Men home");
 });
 
 app.post("/add", (req, res) => {
   const newItem = {
     title: req.body.title,
-    ID: Date.now() 
+    ID: Date.now()
   };
   arr.unshift(newItem);
   res.status(201).send(newItem);
