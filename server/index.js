@@ -19,7 +19,7 @@ app.post('/', (req, res) => {
     }).then((res) => res.json(res)).catch((err) => res.json(err))
 })
 app.get('/', (req, res) => {
-
+    TodoModel.find().then(result => res.json(result)).catch(err => res.json(err))
 })
 
 

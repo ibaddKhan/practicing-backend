@@ -6,8 +6,7 @@ const Home = () => {
     let value = useRef()
     let [todo, setTodo] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/')
-        console.log("working get in frontend");
+        axios.get('http://localhost:3000/').then(res => setTodo(res.data)).catch(err => console.log(err))
     }, [todo])
     function addtask(e) {
         e.preventDefault()
@@ -18,7 +17,7 @@ const Home = () => {
         axios.post('http://localhost:3000/', { task: value.current.value }).then(res => console.log(res)).catch((err) => {
             console.log(err);
         }).then(() => {
-
+            console.log("Working")
             setTodo([value.current.value, ...todo])
         }).catch(
             () => {
@@ -40,7 +39,7 @@ const Home = () => {
                     todo.length === 0 ?
                         <h1>No todos found</h1> :
                         todo.map((item, index) => (
-                            <li key={index}>{item}</li>
+                            <li key={index}>{item.task}</li>
 
                         )
                         )
